@@ -1,54 +1,125 @@
+"use client";
+
 import Header from "../components/Header";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { loginSchema } from "../schemas/login";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import {
+    Field,
+    FieldError,
+    FieldGroup,
+    FieldLabel,
+} from "@/components/ui/field";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/auth-context";
+
+import axios from "axios";
 
 export default function SignIn() {
+    const router = useRouter();
+    const { login, isPending } = useAuth();
+    const form = useForm({
+        resolver: zodResolver(loginSchema),
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+    });
+
+    async function onSubmit(data: z.infer<typeof loginSchema>) {
+        try {
+            await login(data);
+            toast.success("Signed in successfully");
+            router.push("/dashboard");
+        } catch (error) {
+            let message = "Failed to sign in. Please check your credentials.";
+            if (axios.isAxiosError(error) && error.response?.data?.message) {
+                message = error.response.data.message;
+            }
+            toast.error(message);
+        }
+    }
+
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen flex flex-col items-center justify-center p-4">
             <Header />
-            <div className="flex items-center justify-center min-h-screen pt-[100px] px-4">
-                <div className="w-full max-w-[400px] space-y-8">
-                    <div className="space-y-2 text-center">
-                        <h1 className="text-3xl font-bold text-secondary">Sign In</h1>
-                        <p className="text-gray-500">Enter your credentials to access your account</p>
-                    </div>
-
-                    <form className="space-y-6">
-                        <div className="space-y-2">
-                            <label htmlFor="email" className="block text-base font-bold text-black">
-                                Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                id="email"
-                                type="email"
-                                required
-                                placeholder="seu@email.com"
-                                className="w-full h-[38px] px-4 bg-white border border-[#94979B] rounded-[8px] text-[#101820] placeholder-[#A2AAB6] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
+            <Card className="w-[80%] max-w-2xl mt-8">
+                <CardHeader>
+                    <CardTitle>Sign In</CardTitle>
+                    <CardDescription>Enter your credentials to access your account</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <FieldGroup className="gap-y-4">
+                            <Controller
+                                name="email"
+                                control={form.control}
+                                render={({ field, fieldState }) => (
+                                    <Field>
+                                        <FieldLabel>Email</FieldLabel>
+                                        <Input
+                                            aria-invalid={fieldState.invalid}
+                                            placeholder="john@doe.com"
+                                            type="email"
+                                            {...field}
+                                        />
+                                        {fieldState.invalid && (
+                                            <FieldError errors={[fieldState.error]} />
+                                        )}
+                                    </Field>
+                                )}
                             />
-                        </div>
-
-                        <div className="space-y-2">
-                            <label htmlFor="password" className="block text-base font-bold text-black">
-                                Password <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                id="password"
-                                type="password"
-                                required
-                                placeholder="********"
-                                className="w-full h-[38px] px-4 bg-white border border-[#94979B] rounded-[8px] text-[#101820] placeholder-[#A2AAB6] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
+                            <Controller
+                                name="password"
+                                control={form.control}
+                                render={({ field, fieldState }) => (
+                                    <Field>
+                                        <FieldLabel>Password</FieldLabel>
+                                        <Input
+                                            aria-invalid={fieldState.invalid}
+                                            placeholder="********"
+                                            type="password"
+                                            {...field}
+                                        />
+                                        {fieldState.invalid && (
+                                            <FieldError errors={[fieldState.error]} />
+                                        )}
+                                    </Field>
+                                )}
                             />
-                        </div>
-
-                        <div className="pt-2">
-                            <button
-                                type="button"
-                                className="w-full h-[40px] px-6 text-lg font-normal text-white bg-[#EA7603] hover:bg-[#d66b02] rounded-full transition-all duration-200 shadow-sm flex items-center justify-center cursor-pointer"
+                            <Button
+                                disabled={isPending}
+                                className="relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground group"
+                                type="submit"
                             >
-                                Enviar
-                            </button>
-                        </div>
+                                {/* Shimmer effect */}
+                                <span className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-linear-to-r from-transparent via-white/20 to-transparent" />
+
+                                {isPending ? (
+                                    <div className="flex items-center gap-2">
+                                        <Loader2 className="size-4 animate-spin" />
+                                        <span>Signing in...</span>
+                                    </div>
+                                ) : (
+                                    <span className="relative z-10">Sign In</span>
+                                )}
+                            </Button>
+                        </FieldGroup>
                     </form>
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         </main>
     );
 }

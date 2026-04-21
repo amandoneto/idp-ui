@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     description: "Your journey to self-improvement begins here.",
 };
 
+import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "./context/auth-context";
+import { Toaster } from "sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -24,7 +29,17 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
             <body className={`${jakarta.variable} antialiased`} suppressHydrationWarning>
-                {children}
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <TooltipProvider><AuthProvider>
+                        {children}
+                        <Toaster position="top-right" />
+                    </AuthProvider></TooltipProvider>
+                </ThemeProvider>
             </body>
         </html>
     );

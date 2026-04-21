@@ -1,115 +1,162 @@
 "use client";
 
 import Header from "../components/Header";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { registerSchema } from "../schemas/register";
 
-const schema = yup.object({
-    name: yup.string().required("Name is required"),
-    email: yup.string().email("Invalid email format").required("Email is required"),
-    password: yup.string().required("Password is required")
-        .min(8, "Password must be at least 8 characters long")
-        .max(20, "Password must be at most 20 characters long"),
-    verifyPassword: yup
-        .string()
-        .oneOf([yup.ref("password")], "Passwords must match")
-        .required("Please verify your password"),
-}).required();
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import {
+    Field,
+    FieldError,
+    FieldGroup,
+    FieldLabel,
+} from "@/components/ui/field";
+import { toast } from "sonner"
+import { useTransition } from "react";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-type FormData = yup.InferType<typeof schema>;
 
 export default function SignUp() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<FormData>({
-        resolver: yupResolver(schema),
+    const router = useRouter();
+    const form = useForm({
+        resolver: zodResolver(registerSchema),
+        defaultValues: {
+            email: "",
+            name: "",
+            password: "",
+            verifyPassword: "",
+        },
     });
+    const [isPending, startTransition] = useTransition();
 
-    const onSubmit: SubmitHandler<FormData> = (data) => {
+    async function onSubmit(data: z.infer<typeof registerSchema>) {
+        startTransition(async () => {
+            await register({
+                email: data.email,
+                name: data.name,
+                password: data.password,
+                verifyPassword: data.verifyPassword,
+            });
+        });
+    }
+
+    const register = async (data: z.infer<typeof registerSchema>) => {
         console.log(data);
-        // Endpoint pending
     };
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen flex flex-col items-center justify-center p-4">
             <Header />
-            <div className="flex items-center justify-center min-h-screen pt-[100px] px-4">
-                <div className="w-full max-w-[400px] space-y-8">
-                    <div className="space-y-2 text-center">
-                        <h1 className="text-3xl font-bold text-secondary">Sign UP</h1>
-                    </div>
-
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                        <div className="space-y-2">
-                            <label htmlFor="name" className="block text-base font-bold text-black">
-                                Name <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                id="name"
-                                type="text"
-                                placeholder="Your Name"
-                                {...register("name")}
-                                className="w-full h-[38px] px-4 bg-white border border-[#94979B] rounded-[8px] text-[#101820] placeholder-[#A2AAB6] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
-                            />
-                            {errors.name && <span className="text-red-500 text-sm">{errors.name.message}</span>}
-                        </div>
-
-                        <div className="space-y-2">
-                            <label htmlFor="email" className="block text-base font-bold text-black">
-                                Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                id="email"
-                                type="email"
-                                placeholder="seu@email.com"
-                                {...register("email")}
-                                className="w-full h-[38px] px-4 bg-white border border-[#94979B] rounded-[8px] text-[#101820] placeholder-[#A2AAB6] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
-                            />
-                            {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
-                        </div>
-
-                        <div className="space-y-2">
-                            <label htmlFor="password" className="block text-base font-bold text-black">
-                                Password <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                id="password"
-                                type="password"
-                                placeholder="********"
-                                {...register("password")}
-                                className="w-full h-[38px] px-4 bg-white border border-[#94979B] rounded-[8px] text-[#101820] placeholder-[#A2AAB6] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
-                            />
-                            {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
-                        </div>
-
-                        <div className="space-y-2">
-                            <label htmlFor="verifyPassword" className="block text-base font-bold text-black">
-                                Verify Password <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                id="verifyPassword"
-                                type="password"
-                                placeholder="********"
-                                {...register("verifyPassword")}
-                                className="w-full h-[38px] px-4 bg-white border border-[#94979B] rounded-[8px] text-[#101820] placeholder-[#A2AAB6] focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
-                            />
-                            {errors.verifyPassword && <span className="text-red-500 text-sm">{errors.verifyPassword.message}</span>}
-                        </div>
-
-                        <div className="pt-2">
-                            <button
-                                type="submit"
-                                className="w-full h-[40px] px-6 text-lg font-normal text-white bg-[#EA7603] hover:bg-[#d66b02] rounded-full transition-all duration-200 shadow-sm flex items-center justify-center cursor-pointer"
-                            >
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <Card className="w-[80%] max-w-2xl mt-8">
+            <CardHeader>
+                <CardTitle>Sign up</CardTitle>
+                <CardDescription>Create an account to get started</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                    <FieldGroup className="gap-y-4">
+                        <Controller
+                            name="name"
+                            control={form.control}
+                            render={({ field, fieldState }) => (
+                                <Field>
+                                    <FieldLabel>Full Name</FieldLabel>
+                                    <Input
+                                        aria-invalid={fieldState.invalid}
+                                        placeholder="John Doe"
+                                        {...field}
+                                    />
+                                    {fieldState.invalid && (
+                                        <FieldError errors={[fieldState.error]} />
+                                    )}
+                                </Field>
+                            )}
+                        />
+                        <Controller
+                            name="email"
+                            control={form.control}
+                            render={({ field, fieldState }) => (
+                                <Field>
+                                    <FieldLabel>Email</FieldLabel>
+                                    <Input
+                                        aria-invalid={fieldState.invalid}
+                                        placeholder="john@doe.com"
+                                        type="email"
+                                        {...field}
+                                    />
+                                    {fieldState.invalid && (
+                                        <FieldError errors={[fieldState.error]} />
+                                    )}
+                                </Field>
+                            )}
+                        />
+                        <Controller
+                            name="password"
+                            control={form.control}
+                            render={({ field, fieldState }) => (
+                                <Field>
+                                    <FieldLabel>Password</FieldLabel>
+                                    <Input
+                                        aria-invalid={fieldState.invalid}
+                                        placeholder="********"
+                                        type="password"
+                                        {...field}
+                                    />
+                                    {fieldState.invalid && (
+                                        <FieldError errors={[fieldState.error]} />
+                                    )}
+                                </Field>
+                            )}
+                        />
+                        <Controller
+                            name="verifyPassword"
+                            control={form.control}
+                            render={({ field, fieldState }) => (
+                                <Field>
+                                    <FieldLabel>Verify Password</FieldLabel>
+                                    <Input
+                                        aria-invalid={fieldState.invalid}
+                                        placeholder="********"
+                                        type="password"
+                                        {...field}
+                                    />
+                                    {fieldState.invalid && (
+                                        <FieldError errors={[fieldState.error]} />
+                                    )}
+                                </Field>
+                            )}
+                        />
+                        <Button 
+                            disabled={isPending} 
+                            className="relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground group"
+                        >
+                            {/* Shimmer effect */}
+                            <span className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-linear-to-r from-transparent via-white/20 to-transparent" />
+                            
+                            {isPending ? (
+                                <div className="flex items-center gap-2">
+                                    <Loader2 className="size-4 animate-spin" />
+                                    <span>Creating account...</span>
+                                </div>
+                            ) : (
+                                <span className="relative z-10">Create Account</span>
+                            )}
+                        </Button>
+                    </FieldGroup>
+                </form>
+            </CardContent>
+        </Card>
         </main>
     );
 }

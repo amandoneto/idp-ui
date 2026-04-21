@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Main() {
     return (
-        <section className="relative min-h-screen flex flex-col justify-center items-center pt-[100px] overflow-hidden bg-white text-center px-6">
+        <section className="relative min-h-screen flex flex-col justify-center items-center pt-[100px] overflow-hidden bg-background transition-colors duration-500 text-center px-6">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -14,8 +14,8 @@ export default function Main() {
                     priority
                     className="object-cover object-center opacity-100 scale-105 animate-[subtle-zoom_20s_infinite_alternate]"
                 />
-                {/* Smooth Overlay for Readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/80 backdrop-blur-[2px]" />
+                {/* Smooth Overlay for Readability - Theme Aware */}
+                <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/40 to-background/80 backdrop-blur-[2px] transition-colors duration-500" />
             </div>
 
             <div className="relative z-10 max-w-4xl space-y-8 animate-[fade-up_1s_ease-out_forwards]">
@@ -24,11 +24,11 @@ export default function Main() {
                     <span className="text-primary">Jornada de Desenvolvimento</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto font-medium transition-all duration-700 delay-300">
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto font-medium transition-all duration-700 delay-300">
                     Plano de Desenvolvimento Individual
                 </p>
 
-                <p className="text-gray-500 max-w-xl mx-auto leading-relaxed transition-all duration-700 delay-500">
+                <p className="text-muted-foreground/80 max-w-xl mx-auto leading-relaxed transition-all duration-700 delay-500">
                     Desenvolva-se e alcance seus objetivos com o PDI.
                     Gerencie seus objetivos, acompanhe seu progresso e atinja alturas novas em sua carreira e vida pessoal.
                 </p>

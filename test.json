@@ -1,0 +1,888 @@
+[
+    {
+        "status": "draft",
+        "year": 2025,
+        "categories": [
+            {
+                "category": "Coding",
+                "subCategories": [
+                    {
+                        "subCategory": "Abstraction",
+                        "subCategoryDescription": "Habilidade de concentrar nos aspectos essenciais de um contexto qualquer, ignorando características menos importantes ou acidentais. Em outras palavras, traduzir um problema/contexto específico para um código expressivo e compreensível",
+                        "questions": [
+                            {
+                                "levelDescription": "Não consegue abstrair problemas.",
+                                "levelValue": 0,
+                                "levelUuid": "695d1a0a-eaed-4087-9b64-30b9e88fcb4c"
+                            },
+                            {
+                                "levelDescription": "Pouca ou nenhuma. Conhece apenas a teoria que viu na faculdade ou em tutoriais.",
+                                "levelValue": 1,
+                                "levelUuid": "1a4d3bd5-90ed-48b1-b342-ccc25ff70c67"
+                            },
+                            {
+                                "levelDescription": "Tem muita dificuldade em isolar problemas e propôr soluções.",
+                                "levelValue": 2,
+                                "levelUuid": "87d4fcf9-eafa-468c-9673-520be581d8af"
+                            },
+                            {
+                                "levelDescription": "Consegue entender problemas simples e propôr implementações mais rudimentares, abstraindo seus aspectos. Contudo, não consegue diferenciar os aspectos essenciais dos menos importantes e acidentais. ",
+                                "levelValue": 3,
+                                "levelUuid": "923731e9-516a-40a7-b080-052184dd8860"
+                            },
+                            {
+                                "levelDescription": "Tem facilidade em isolar problemas e imaginar possiveis abordagens e estruturação de código. Contudo ainda vai muito na tentativa e erro.",
+                                "levelValue": 4,
+                                "levelUuid": "aa0def32-c247-4a7d-aef8-a5ce23802988"
+                            },
+                            {
+                                "levelDescription": "Tem facilidade em isolar problemas gerais, fazendo uma adequada separação de modelo de dados/funcionalidades e suas manipulações. Consegue delimitar interfaces básicas para garantir menor acoplamento.",
+                                "levelValue": 5,
+                                "levelUuid": "da5bff0c-7aa5-42d5-9425-532b6bba7aac"
+                            },
+                            {
+                                "levelDescription": "Consegue isolar problemas mais complexos e definir interfaces para segregação dos níveis de abstração.",
+                                "levelValue": 6,
+                                "levelUuid": "609248ae-b45c-469b-b80d-556509713831"
+                            },
+                            {
+                                "levelDescription": "Consegue isolar problemas mais complexos e definir interfaces para segregação dos níveis de abstração.",
+                                "levelValue": 7,
+                                "levelUuid": "70c35fd1-2bca-4511-9391-e7de4982dc9a"
+                            },
+                            {
+                                "levelDescription": "Tem a capacidade de analisar códigos poucos documentados e capturar as partes essenciais para manutenção e customização. Tem a capacidade de abstrarir sistemas com técnicas de DDD.",
+                                "levelValue": 8,
+                                "levelUuid": "0d527b84-264b-404f-b0ef-745248493845"
+                            },
+                            {
+                                "levelDescription": "Facilidade para isolar detalhes de subsistemas permitindo separação de responsabilidades de forma a facilitar a interoperabilidade e independência de plataforma.",
+                                "levelValue": 9,
+                                "levelUuid": "6b04bb2f-fd15-43a8-8e50-6f4af765eb84"
+                            },
+                            {
+                                "levelDescription": "Total domínio de DDD. Tem facilidade para modelar qualquer problema e consegue, inclusive, fazê-lo mentalmente durante conversas para entendimento da necessidade do negócio.",
+                                "levelValue": 10,
+                                "levelUuid": "d6663e6f-71f7-4c33-8f0b-991cc26c0680"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Clean code (Readability & Simplicity)",
+                        "subCategoryDescription": "Código limpo é uma filosofia de desenvolvimento cuja o principal objetivo é aplicar técnicas que visam facilitar a escrita e leitura de um código, tornando-o de fácil compreensão e revelando a sua real intenção. Busca pela simplicidade.",
+                        "questions": [
+                            {
+                                "levelDescription": "Código ilegível e nem sempre funciona. Implementa algoritmos",
+                                "levelValue": 0,
+                                "levelUuid": "33a4e338-9c8e-4758-8034-832c04c63b44"
+                            },
+                            {
+                                "levelDescription": "Maior parte do tempo faz copy&paste sem ter o cuidado de renomear variáveis/funções. (Computers can read)",
+                                "levelValue": 1,
+                                "levelUuid": "1d687091-b641-4ff5-8628-aa48c98f0f57"
+                            },
+                            {
+                                "levelDescription": "Codifica algumas linhas sozinho, ainda faz bastante copy&paste mas já tem o cuidado de mudar nomes e analisar o contexto do algoritmo mesmo que ainda não saiba o porquê.",
+                                "levelValue": 2,
+                                "levelUuid": "0d53081f-3921-47c1-86e7-11cfa2ce824c"
+                            },
+                            {
+                                "levelDescription": "Escreve um código mais organizado, porém ainda bastante verboso e sem muita clareza. Ainda coloca comentários no código para explicar o que queria fazer.",
+                                "levelValue": 3,
+                                "levelUuid": "161af116-8142-4b98-a4ff-f61e9a08059e"
+                            },
+                            {
+                                "levelDescription": "Escreve um código com mais clareza e menos verbosidade. Se preocupa em comunicar a intenção por meio de variáveis e métodos com nomes adequados. Ainda apresenta um pouco de complexidade ciclomática no código, funções e classes com mais de uma responsabilidade. (humans can read)",
+                                "levelValue": 4,
+                                "levelUuid": "52d92b06-26cc-4c63-bd12-80719c0b0df1"
+                            },
+                            {
+                                "levelDescription": "Entende o que é um código mal escrito e se preocupa em refatorar. Consegue refatorar com ajuda dos mais seniores. Já consegue manter o código com responsabilidades bem definidas e baixa complexidade ciclomática.",
+                                "levelValue": 5,
+                                "levelUuid": "9c3ee4cb-411e-4aee-86d8-44c5a77a58a2"
+                            },
+                            {
+                                "levelDescription": "Consegue perceber alguns code smells e faz o refactoring mais ativamente e com mais autonomia. Não manda pra review antes de fazer refactoring do próprio código. Não faz refactoring antes de se certificar que há cobertura de testes suficiente",
+                                "levelValue": 6,
+                                "levelUuid": "4b76b571-07f9-4434-a984-a646274447e3"
+                            },
+                            {
+                                "levelDescription": "Consegue facilmente identificar a maioria dos code smells e utiliza as técnicas de refatoração corretas. A pressão de prazo não é impeditivo para fazer refactoring (planeja o refactoring)",
+                                "levelValue": 7,
+                                "levelUuid": "89fcd54e-9779-4d60-b7e8-52e8c5b8d4a6"
+                            },
+                            {
+                                "levelDescription": "Já chegou no ponto em que superou o receio de fazer grandes refactorings e mexer \"no código dos outros\"",
+                                "levelValue": 8,
+                                "levelUuid": "cdd7d288-4d13-4e53-8d18-fc405b465f0e"
+                            },
+                            {
+                                "levelDescription": "Entende o trade-off da refatoração e testes",
+                                "levelValue": 9,
+                                "levelUuid": "5bdb0fa6-0463-40cb-9dd8-18adce4cab3d"
+                            },
+                            {
+                                "levelDescription": "Escreve código conciso, expressivo, legível, simples e elegante. Qualquer desenvolvedor consegue entender e fica com a impressão de \"cadê o resto do código?\".",
+                                "levelValue": 10,
+                                "levelUuid": "7bfb2cee-e263-4025-a68b-0be212bc571d"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Paradigms: Functional",
+                        "subCategoryDescription": "Um paradigma de programação fornece e determina a visão que o programador possui sobre a estruturação e execução do programa.",
+                        "questions": [
+                            {
+                                "levelDescription": "Nenhum conhecimento ou apenas ouviu falar.",
+                                "levelValue": 0,
+                                "levelUuid": "b0b48364-fbe9-4ce3-8f7c-be757e13a65d"
+                            },
+                            {
+                                "levelDescription": "Pouco conhecimento. Consegue ler mas tem dificuldade em entender alguns conceitos",
+                                "levelValue": 1,
+                                "levelUuid": "02e411b2-d92a-405f-a83b-3759c2392562"
+                            },
+                            {
+                                "levelDescription": "Sabe diferenciar o paradigma funcional de outros paradigmas e consegue escrever alguns algoritmos, mas de forma muito imperativa.",
+                                "levelValue": 2,
+                                "levelUuid": "e7c5505b-1e3f-49f1-8650-45337c431d95"
+                            },
+                            {
+                                "levelDescription": "Entende a importância sobre programar de forma expressiva, porém ainda tem dificuldades na forma de aplicar na prática.",
+                                "levelValue": 3,
+                                "levelUuid": "9fe3dc3f-e646-4a3f-8115-64644358ed12"
+                            },
+                            {
+                                "levelDescription": "Conhece os fundamentos e motivações, consegue escrever algoritmos funcionais com facilidade. Programa de forma expressiva e menos declarativa. Conhece os problemas da mutabilidade e evita side effects.",
+                                "levelValue": 4,
+                                "levelUuid": "0e680c8f-9ab3-48ca-98f3-c9a11fa0cce7"
+                            },
+                            {
+                                "levelDescription": "Escreve código funcional com facilidade, de forma imutável e sem side effects. Conhece High Order Functions mas ainda não domina totalmente.",
+                                "levelValue": 5,
+                                "levelUuid": "888f9cff-b7d2-4a70-be29-3bbd803eaac4"
+                            },
+                            {
+                                "levelDescription": "Entende conceitos como Closures, High Order Functions e Currying e consegue aplicá-los quando necessário.",
+                                "levelValue": 6,
+                                "levelUuid": "a3891ccd-48fa-4522-8faf-53890a2cf812"
+                            },
+                            {
+                                "levelDescription": "Consegue refinar funções longas e complexas. Organizando, dividindo, refinando código, removendo duplicidades e convertendo funções Tríades em Díades ou Mônades. ",
+                                "levelValue": 7,
+                                "levelUuid": "150e8109-b546-42b8-b792-35b6230438d0"
+                            },
+                            {
+                                "levelDescription": "Aplica os conceitos do Paradigma funcional com Eficiência, consegue atingir paralelismo e administrar concorrência com o objetivo de adquirir alta performance na execução.",
+                                "levelValue": 8,
+                                "levelUuid": "eecc6938-7f9a-48e7-971d-80eb379538c8"
+                            },
+                            {
+                                "levelDescription": "Domina todos os aspectos do paradigma de forma natural. Orienta outros devs sobre Transparência Referencial, Programação Expressiva, Variância, Contra Variância e Invariância, Mônadas, coroutine, High Order Functions, Reificação, Functional Programming Calisthenics, etc.",
+                                "levelValue": 9,
+                                "levelUuid": "8a28e76d-bca9-44ca-bd54-a9735e749f17"
+                            },
+                            {
+                                "levelDescription": "É referência em programação funcional. Conhece a fundo o paradigma e consegue resolver de forma elegante praticamente qualquer problema.",
+                                "levelValue": 10,
+                                "levelUuid": "84dd5aec-d323-4739-8765-941cf0485835"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Paradigms: OO",
+                        "subCategoryDescription": "Um paradigma de programação fornece e determina a visão que o programador possui sobre a estruturação e execução do programa.",
+                        "questions": [
+                            {
+                                "levelDescription": "Nenhum conhecimento ou apenas ouviu falar.",
+                                "levelValue": 0,
+                                "levelUuid": "592e0032-76a5-4c94-8259-69939f2ed80d"
+                            },
+                            {
+                                "levelDescription": "Pouco ou nenhum conhecimento. Consegue ler mas tem dificuldade em entender alguns conceitos",
+                                "levelValue": 1,
+                                "levelUuid": "faa9e511-9072-486d-8a77-dcd22e8e446a"
+                            },
+                            {
+                                "levelDescription": "Conhece sobre os pilares da OO, consegue identificá-los no código mas nem sempre consegue aplicar de forma prática.",
+                                "levelValue": 2,
+                                "levelUuid": "6ae25e0f-0364-4054-a9ef-bf4372c0f916"
+                            },
+                            {
+                                "levelDescription": "Conhece os pilares da OO, e consegue implementar o básico, de forma ainda verbosa e com alguns gaps, contudo sem muita dificuldade.",
+                                "levelValue": 3,
+                                "levelUuid": "8cb99482-0a72-4086-ad0d-8b1d709e1a2d"
+                            },
+                            {
+                                "levelDescription": "Consegue escrever um código OO com facilidade. Entende e consegue aplicar parcialmente os conceitos do SOLID com certa dificuldade.",
+                                "levelValue": 4,
+                                "levelUuid": "9c29e723-cbb2-4a0f-97c9-5a024ca66328"
+                            },
+                            {
+                                "levelDescription": "Facilidade com programação OO. Aplica todos os princípios do SOLID com facilidade",
+                                "levelValue": 5,
+                                "levelUuid": "013af801-e8dc-4869-b5e7-5016ed9752e3"
+                            },
+                            {
+                                "levelDescription": "Consegue refatorar códigos complexos deixando muito mais Orientado a Objetos. Orienta em review dos colegas pontos de melhoria para reduzir possíveis acomplamentos.",
+                                "levelValue": 6,
+                                "levelUuid": "d28d96e3-6261-4a71-935d-2e0cd3c45b80"
+                            },
+                            {
+                                "levelDescription": "É assertivo em refatorações e reviews sobre código que viola boas práticas do paradigma. Escreve códigos com baixo acoplamento e com alta coesão, mantendo as informações nos lugares aos quais pertencem.",
+                                "levelValue": 7,
+                                "levelUuid": "80ff9f62-34f8-402c-85ba-0bc9382ea749"
+                            },
+                            {
+                                "levelDescription": "Conhece a fundo a OO e tem bom domínio sobre melhores práticas. Aplica com facilidade no seu dia a dia e mentora desenvolvedores menos experientes em como deixar o código melhor tirando o máximo de proveito das cracterísticas do paradigma.",
+                                "levelValue": 8,
+                                "levelUuid": "9ba49a79-ee39-4512-a436-143751e428b9"
+                            },
+                            {
+                                "levelDescription": "Tem total domínio sobre o paradigma, sabe quando a Orientação a Objetos é a melhor solução e quando pode ser um problema. Domina todas os conceitos do paradigma, tais como SOLID, KISS, DRY, Object Calisthenics, e aplica de forma natural no dia a dia com alta coesão e baixo acoplamento.",
+                                "levelValue": 9,
+                                "levelUuid": "03bddfab-4090-4f35-92b5-63ac13e7dd82"
+                            },
+                            {
+                                "levelDescription": "É referência em programação orientada a objetos. Conhece a fundo o paradigma e consegue resolver de forma elegante praticamente qualquer problema.",
+                                "levelValue": 10,
+                                "levelUuid": "e267f545-e9aa-40cc-9a09-0a380b53ecb1"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Problem solving",
+                        "subCategoryDescription": "Uso de métodos e ferrramentas para encontrar soluções de problemas específicos. Envolve utilizar uma abordagem científica (observação, levantamento de hipóteses, reprodução, formulação da solução) em vez de tentativa e erro.",
+                        "questions": [
+                            {
+                                "levelDescription": "Não consegue resolver problemas.",
+                                "levelValue": 0,
+                                "levelUuid": "cc17b7e4-dd40-4782-a463-2874ff27b756"
+                            },
+                            {
+                                "levelDescription": "Tem dificuldade em abordar problemas e identificar onde precisa ser corrigido ou implementado.",
+                                "levelValue": 1,
+                                "levelUuid": "3bf36b81-c21e-4d29-bfd4-65bebbe752a7"
+                            },
+                            {
+                                "levelDescription": "Resolve problemas com a abordagem de tentativa e erro. Não há uma abordagem estruturada.",
+                                "levelValue": 2,
+                                "levelUuid": "83d2a4aa-1908-4c90-9dfb-2c2f0b16c1a6"
+                            },
+                            {
+                                "levelDescription": "Ainda tem dificuldades em identificar os problemas por meio da observação, mas já deixa de lado a abordagem de tentativa e erro.",
+                                "levelValue": 3,
+                                "levelUuid": "571cd2e7-4b90-4319-94bb-3f74a53468e1"
+                            },
+                            {
+                                "levelDescription": "Já consegue identificar os problemas através da observação e inicia o trabalho de levantar hipóteses para a solução",
+                                "levelValue": 4,
+                                "levelUuid": "27a94437-bb24-45e6-acfb-eec8f223c5b0"
+                            },
+                            {
+                                "levelDescription": "Realiza o levantamento de hipóteses para solução do problema e as testa para decidir pela melhor solução.",
+                                "levelValue": 5,
+                                "levelUuid": "61e77f05-07fe-450a-b54c-0505863e354c"
+                            },
+                            {
+                                "levelDescription": "Consegue resolver problemas complexos utilizando uma abordagem mais científica, estruturada e documentada da solução, preocupando-se em compartilhar esse conhecimento com o time.",
+                                "levelValue": 6,
+                                "levelUuid": "82cbe5fa-8d72-4bf2-997b-8673acbaabcf"
+                            },
+                            {
+                                "levelDescription": "Resolve qualquer problema complexo mas ainda depende das ferramentas disponíveis.",
+                                "levelValue": 7,
+                                "levelUuid": "545c505d-1077-44bd-9475-8803d86926ad"
+                            },
+                            {
+                                "levelDescription": "Busca a solução mais simples (Navalha de Ockham).",
+                                "levelValue": 8,
+                                "levelUuid": "ca39db41-d610-48c9-8bad-3dcde02f86df"
+                            },
+                            {
+                                "levelDescription": "Resolve qualquer problema com as ferramentas disponíveis, ou as construindo quando necessário.",
+                                "levelValue": 9,
+                                "levelUuid": "f01b9a33-bea2-4e3a-83d5-e8a90d2eb038"
+                            },
+                            {
+                                "levelDescription": "Enxerga soluções para problemas ultra complexos que outros não conseguem exergar.",
+                                "levelValue": 10,
+                                "levelUuid": "e18f7fa7-ac0d-45fa-9a6f-b955db921965"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Stack&Tools",
+                        "subCategoryDescription": "Entende-se por Stack o conjunto de ferramentas (Tools) utilizadas no dia a dia para execução das atividades ou ambiente onde os artefatos são disponibilizados. Representa o grau de domínio das ferramentas disponíveis e da linguagem em que atua.",
+                        "questions": [
+                            {
+                                "levelDescription": "Nunca atuou profissionalmente com nenhuma stack.",
+                                "levelValue": 0,
+                                "levelUuid": "3a8a4d5a-be87-4272-ae91-f7d6a4caa16b"
+                            },
+                            {
+                                "levelDescription": "Tem conhecimentos básicos da linguagem e IDE. Já atuou profissionalmente em alguma stack.",
+                                "levelValue": 1,
+                                "levelUuid": "5655f41d-93b2-4a01-9dfe-72aa5e682c36"
+                            },
+                            {
+                                "levelDescription": "Conhece a sintaxe da linguagem e a maioria dos operadores e estruturas. Consegue utilizar os recursos da IDE para debugar e realizar refactorings simples (rename, extract to variable/method, inline, etc)",
+                                "levelValue": 2,
+                                "levelUuid": "62c35ee5-162d-4d84-aaa3-a4753eb48ab8"
+                            },
+                            {
+                                "levelDescription": "Conhece bem a linguagem que trabalha. Entende diferenças em versões e acompanha suas evoluções (novas implementações, funções que se tornaram obsoletas e afins).",
+                                "levelValue": 3,
+                                "levelUuid": "9ac28855-d84b-43f0-9727-d69abc54d381"
+                            },
+                            {
+                                "levelDescription": "Consegue implementar qualquer coisa na stack que trabalha praticamente sem ajuda dos mais seniores, embora o código não seja ainda o mais limpo, coeso e com baixo acomplamento.",
+                                "levelValue": 4,
+                                "levelUuid": "65c7a1f5-6572-4250-97df-1042aeceae79"
+                            },
+                            {
+                                "levelDescription": "Tem fluência na linguagem e não depende dos mais seniores para implementar mesmo problemas complexos. Ainda tem dificuldade na utilização e ponderar tradeoffs na escolha de frameworks/libs para o projeto.",
+                                "levelValue": 5,
+                                "levelUuid": "02ed683c-e131-4a12-84bf-0dec20d06416"
+                            },
+                            {
+                                "levelDescription": "Conhece a maior parte dos frameworks de mercado/obj dentro da stack e conhece a maior parte dos tradeoffs do seu uso em projetos novos e em andamento mas ainda precisa dos mais seniores para decidir sobre suas utilizações no projeto.",
+                                "levelValue": 6,
+                                "levelUuid": "d75ab395-4097-40d5-b56d-12175ccf9e29"
+                            },
+                            {
+                                "levelDescription": "Tem total domínio da linguagem e IDE, conhece em profundidade os melhores frameworks do mercado disponíveis para a stack bem como suas variações e bibliotecas disponíveis. Sabe quando é bom utilizá-los e quando não.",
+                                "levelValue": 7,
+                                "levelUuid": "1b99507a-6562-4f73-94ac-87048f7cbe9a"
+                            },
+                            {
+                                "levelDescription": " Consegue utilizar os melhores recursos dos frameworks disponíveis para a stack. Já consegue contribuir com commits em projetos open source referentes ao ecossistema que atua (libs, frameworks, ferramentas, etc).",
+                                "levelValue": 8,
+                                "levelUuid": "024f6fe4-d262-401d-abfa-a116e55490b7"
+                            },
+                            {
+                                "levelDescription": "É referencia dentro do time para aquela tecnologia. Tem profundo conhecimento sobre stack, IDE, ferramentas, libs, framworks. Quando não existem libs disponíveis, as implementa.",
+                                "levelValue": 9,
+                                "levelUuid": "dc95ed8f-3dd6-4f32-af12-9734fc225433"
+                            },
+                            {
+                                "levelDescription": "É referência na linguagem, não apenas no time, mas também na Objective e nas comunidades. Domina a IDE que utiliza, tem fácilidade para debugar qualquer código e utiliza com maestria até mesmo os recursos mais avançados da linguagem explorando ao máximo seu potencial.",
+                                "levelValue": 10,
+                                "levelUuid": "c8dcca9d-f421-4d00-a6de-893505ce8ca6"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "Scope",
+                "subCategories": [
+                    {
+                        "subCategory": "Agile Planning",
+                        "subCategoryDescription": "O Planejamento de qualquer projeto é a chave para determinar o sucesso ou o fracasso. O entendimento e documentação do problema de negócio do cliente, a criação de um escopo que irá resolver cada um desses problemas e a quebra desse escopo em 3 níveis é importante para um melhor entendimento do cliente e do time que irá executá-lo.",
+                        "questions": [
+                            {
+                                "levelDescription": "Não consegue entender o problema de negócio ou levantar requisitos.",
+                                "levelValue": 0,
+                                "levelUuid": "7706fdae-6f63-486a-8877-6a34f20ef791"
+                            },
+                            {
+                                "levelDescription": "Pouco ou nenhum conhecimento de negócio. Executa as tarefas pensando somente na questão técnica, sem olhar a parte de negócio.",
+                                "levelValue": 1,
+                                "levelUuid": "9f1d1249-0887-4065-8dab-e58d8180192c"
+                            },
+                            {
+                                "levelDescription": "Quebra tarefas com pouco detalhamento de escopo e sem critérios de aceite definidos. Não consegue dar estimativas.",
+                                "levelValue": 2,
+                                "levelUuid": "079c32f7-9d0d-4e76-be9e-1c79b7bae444"
+                            },
+                            {
+                                "levelDescription": "Entende um pouco melhor sobre planejamento de Features e consegue fazer quebra de tarefas no terceiro nível, mas com glanuralidade baixa.",
+                                "levelValue": 3,
+                                "levelUuid": "be1486f3-ec3b-4f21-8a97-0e35f6105459"
+                            },
+                            {
+                                "levelDescription": "Quebra tarefas em maior granularidade, mas com descrição nada clara nem objetiva. Tarefas tem alto grau de dependência, impossibilitando paralelismo. Outro desenvolvedor teria dificuldade para implementar a tarefa de forma autonoma. Já consegue dar estimativas baseadas em tempo.",
+                                "levelValue": 4,
+                                "levelUuid": "ec29137a-e573-4389-948a-368865ec7db2"
+                            },
+                            {
+                                "levelDescription": "Conhece parte do negócio do cliente. Faz planejamentos de pequnas Features, mas precisa sempre de revisão. Normalmente, escopo detalhado está incompleto e/ou sem definição dos testes de aceitação (principalmente para os cenários de exceção). Consegue dar estimataivas em terceiro nível baseadas em complexidade (T-Shirt Sizing) com baixa assertividade.",
+                                "levelValue": 5,
+                                "levelUuid": "63236f37-38cf-441f-858e-3753551f71da"
+                            },
+                            {
+                                "levelDescription": "Entedimento do negócio e escopo planejado  para a Feature são bem completos. Realiza o detalhamento das tasks de forma enriquecida e de acordo com o definition of ready (SMART), antes de prosseguir com o desenvolvimento.",
+                                "levelValue": 6,
+                                "levelUuid": "df927bd6-cc02-4952-a266-3974768afbb0"
+                            },
+                            {
+                                "levelDescription": "Tem um entendimento mais completo do negócio, mas não tão aprofundado. Consegue planejar e acompanhar mais de uma Feature ao mesmo tempo. Produz especifcações bem detalhadas conseguindo mapear claramente qual o valor para o negócio cada Feature trará.",
+                                "levelValue": 7,
+                                "levelUuid": "11f77dfc-f47f-4422-ab95-f82cd5d34a3a"
+                            },
+                            {
+                                "levelDescription": "Conhece muito de pelo menos um módulo do sistema e consegue discutir sobre customização em qualquer módulo da aplicação, fazendo o planejamento a nível de Demandas. Features e tarefas tem descrições claras e objetivas de modo que qualquer desenvolvedor possa implementá-las sem a necessidade de acompanhamento constante. Já conhece e aplicar técnicas consolidadas no mercado de quebra de Features, como INVEST.",
+                                "levelValue": 8,
+                                "levelUuid": "1a1c6b8d-e073-4474-be27-999397adec64"
+                            },
+                            {
+                                "levelDescription": "Planejar projetos de médio prazo, tocando técnicamente Inceptions de pré-venda, fazendo a quebra em nível de Demandas e Features. Seu planejamento inclui previsibilidade de escopo, esforço e prazo, e sabe dizer o grau de assertividade do planejado. Demandas e Features descrevem problemas de negócio de forma que o cliente entenda o que está sendo resolvido a cada entrega. Consegue aplicar técnicas de backlog DEEP e T-shirt Sizing, além de conseguir auxiliar o PO no processo de FDP.",
+                                "levelValue": 9,
+                                "levelUuid": "d6287b01-8d75-4352-aeef-7c27f50af84a"
+                            },
+                            {
+                                "levelDescription": "Identifica e mapeia com extrema facilidade o problema de negócio do cliente, propondo soluções não pensadas pelo cliente. Todas as entregas são orientadas por critérios de aceitação, com alta qualidade e superando as expectativas do cliente. É referência negocial. Consegue discutir e propôr mudanças junto ao cliente em alto nível, inclusive na definição de roadmap alinhado com OKRs.  Em outras palavras, como entusiata das praticas ageis e referência negocial, consegue atuar como um consultor de negócios para o cliente e como consultor de solução para times internos. Priorização e definição de backlog é alinhado aos OKRs do cliente",
+                                "levelValue": 10,
+                                "levelUuid": "fabe569c-5a8b-440c-af12-f41fcfc23fd2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "status": "completed",
+        "year": 2024,
+        "categories": [
+            {
+                "category": "Coding",
+                "subCategories": [
+                    {
+                        "subCategory": "Abstraction",
+                        "subCategoryDescription": "Habilidade de concentrar nos aspectos essenciais de um contexto qualquer, ignorando características menos importantes ou acidentais. Em outras palavras, traduzir um problema/contexto específico para um código expressivo e compreensível",
+                        "questions": [
+                            {
+                                "levelDescription": "Não consegue abstrair problemas.",
+                                "levelValue": 0,
+                                "levelUuid": "695d1a0a-eaed-4087-9b64-30b9e88fcb4c"
+                            },
+                            {
+                                "levelDescription": "Pouca ou nenhuma. Conhece apenas a teoria que viu na faculdade ou em tutoriais.",
+                                "levelValue": 1,
+                                "levelUuid": "1a4d3bd5-90ed-48b1-b342-ccc25ff70c67"
+                            },
+                            {
+                                "levelDescription": "Tem muita dificuldade em isolar problemas e propôr soluções.",
+                                "levelValue": 2,
+                                "levelUuid": "87d4fcf9-eafa-468c-9673-520be581d8af"
+                            },
+                            {
+                                "levelDescription": "Consegue entender problemas simples e propôr implementações mais rudimentares, abstraindo seus aspectos. Contudo, não consegue diferenciar os aspectos essenciais dos menos importantes e acidentais. ",
+                                "levelValue": 3,
+                                "levelUuid": "923731e9-516a-40a7-b080-052184dd8860"
+                            },
+                            {
+                                "levelDescription": "Tem facilidade em isolar problemas e imaginar possiveis abordagens e estruturação de código. Contudo ainda vai muito na tentativa e erro.",
+                                "levelValue": 4,
+                                "levelUuid": "aa0def32-c247-4a7d-aef8-a5ce23802988"
+                            },
+                            {
+                                "levelDescription": "Tem facilidade em isolar problemas gerais, fazendo uma adequada separação de modelo de dados/funcionalidades e suas manipulações. Consegue delimitar interfaces básicas para garantir menor acoplamento.",
+                                "levelValue": 5,
+                                "levelUuid": "da5bff0c-7aa5-42d5-9425-532b6bba7aac"
+                            },
+                            {
+                                "levelDescription": "Consegue isolar problemas mais complexos e definir interfaces para segregação dos níveis de abstração.",
+                                "levelValue": 6,
+                                "levelUuid": "609248ae-b45c-469b-b80d-556509713831"
+                            },
+                            {
+                                "levelDescription": "Consegue isolar problemas mais complexos e definir interfaces para segregação dos níveis de abstração.",
+                                "levelValue": 7,
+                                "levelUuid": "70c35fd1-2bca-4511-9391-e7de4982dc9a"
+                            },
+                            {
+                                "levelDescription": "Tem a capacidade de analisar códigos poucos documentados e capturar as partes essenciais para manutenção e customização. Tem a capacidade de abstrarir sistemas com técnicas de DDD.",
+                                "levelValue": 8,
+                                "levelUuid": "0d527b84-264b-404f-b0ef-745248493845"
+                            },
+                            {
+                                "levelDescription": "Facilidade para isolar detalhes de subsistemas permitindo separação de responsabilidades de forma a facilitar a interoperabilidade e independência de plataforma.",
+                                "levelValue": 9,
+                                "levelUuid": "6b04bb2f-fd15-43a8-8e50-6f4af765eb84"
+                            },
+                            {
+                                "levelDescription": "Total domínio de DDD. Tem facilidade para modelar qualquer problema e consegue, inclusive, fazê-lo mentalmente durante conversas para entendimento da necessidade do negócio.",
+                                "levelValue": 10,
+                                "levelUuid": "d6663e6f-71f7-4c33-8f0b-991cc26c0680"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Clean code (Readability & Simplicity)",
+                        "subCategoryDescription": "Código limpo é uma filosofia de desenvolvimento cuja o principal objetivo é aplicar técnicas que visam facilitar a escrita e leitura de um código, tornando-o de fácil compreensão e revelando a sua real intenção. Busca pela simplicidade.",
+                        "questions": [
+                            {
+                                "levelDescription": "Código ilegível e nem sempre funciona. Implementa algoritmos",
+                                "levelValue": 0,
+                                "levelUuid": "33a4e338-9c8e-4758-8034-832c04c63b44"
+                            },
+                            {
+                                "levelDescription": "Maior parte do tempo faz copy&paste sem ter o cuidado de renomear variáveis/funções. (Computers can read)",
+                                "levelValue": 1,
+                                "levelUuid": "1d687091-b641-4ff5-8628-aa48c98f0f57"
+                            },
+                            {
+                                "levelDescription": "Codifica algumas linhas sozinho, ainda faz bastante copy&paste mas já tem o cuidado de mudar nomes e analisar o contexto do algoritmo mesmo que ainda não saiba o porquê.",
+                                "levelValue": 2,
+                                "levelUuid": "0d53081f-3921-47c1-86e7-11cfa2ce824c"
+                            },
+                            {
+                                "levelDescription": "Escreve um código mais organizado, porém ainda bastante verboso e sem muita clareza. Ainda coloca comentários no código para explicar o que queria fazer.",
+                                "levelValue": 3,
+                                "levelUuid": "161af116-8142-4b98-a4ff-f61e9a08059e"
+                            },
+                            {
+                                "levelDescription": "Escreve um código com mais clareza e menos verbosidade. Se preocupa em comunicar a intenção por meio de variáveis e métodos com nomes adequados. Ainda apresenta um pouco de complexidade ciclomática no código, funções e classes com mais de uma responsabilidade. (humans can read)",
+                                "levelValue": 4,
+                                "levelUuid": "52d92b06-26cc-4c63-bd12-80719c0b0df1"
+                            },
+                            {
+                                "levelDescription": "Entende o que é um código mal escrito e se preocupa em refatorar. Consegue refatorar com ajuda dos mais seniores. Já consegue manter o código com responsabilidades bem definidas e baixa complexidade ciclomática.",
+                                "levelValue": 5,
+                                "levelUuid": "9c3ee4cb-411e-4aee-86d8-44c5a77a58a2"
+                            },
+                            {
+                                "levelDescription": "Consegue perceber alguns code smells e faz o refactoring mais ativamente e com mais autonomia. Não manda pra review antes de fazer refactoring do próprio código. Não faz refactoring antes de se certificar que há cobertura de testes suficiente",
+                                "levelValue": 6,
+                                "levelUuid": "4b76b571-07f9-4434-a984-a646274447e3"
+                            },
+                            {
+                                "levelDescription": "Consegue facilmente identificar a maioria dos code smells e utiliza as técnicas de refatoração corretas. A pressão de prazo não é impeditivo para fazer refactoring (planeja o refactoring)",
+                                "levelValue": 7,
+                                "levelUuid": "89fcd54e-9779-4d60-b7e8-52e8c5b8d4a6"
+                            },
+                            {
+                                "levelDescription": "Já chegou no ponto em que superou o receio de fazer grandes refactorings e mexer \"no código dos outros\"",
+                                "levelValue": 8,
+                                "levelUuid": "cdd7d288-4d13-4e53-8d18-fc405b465f0e"
+                            },
+                            {
+                                "levelDescription": "Entende o trade-off da refatoração e testes",
+                                "levelValue": 9,
+                                "levelUuid": "5bdb0fa6-0463-40cb-9dd8-18adce4cab3d"
+                            },
+                            {
+                                "levelDescription": "Escreve código conciso, expressivo, legível, simples e elegante. Qualquer desenvolvedor consegue entender e fica com a impressão de \"cadê o resto do código?\".",
+                                "levelValue": 10,
+                                "levelUuid": "7bfb2cee-e263-4025-a68b-0be212bc571d"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Paradigms: Functional",
+                        "subCategoryDescription": "Um paradigma de programação fornece e determina a visão que o programador possui sobre a estruturação e execução do programa.",
+                        "questions": [
+                            {
+                                "levelDescription": "Nenhum conhecimento ou apenas ouviu falar.",
+                                "levelValue": 0,
+                                "levelUuid": "b0b48364-fbe9-4ce3-8f7c-be757e13a65d"
+                            },
+                            {
+                                "levelDescription": "Pouco conhecimento. Consegue ler mas tem dificuldade em entender alguns conceitos",
+                                "levelValue": 1,
+                                "levelUuid": "02e411b2-d92a-405f-a83b-3759c2392562"
+                            },
+                            {
+                                "levelDescription": "Sabe diferenciar o paradigma funcional de outros paradigmas e consegue escrever alguns algoritmos, mas de forma muito imperativa.",
+                                "levelValue": 2,
+                                "levelUuid": "e7c5505b-1e3f-49f1-8650-45337c431d95"
+                            },
+                            {
+                                "levelDescription": "Entende a importância sobre programar de forma expressiva, porém ainda tem dificuldades na forma de aplicar na prática.",
+                                "levelValue": 3,
+                                "levelUuid": "9fe3dc3f-e646-4a3f-8115-64644358ed12"
+                            },
+                            {
+                                "levelDescription": "Conhece os fundamentos e motivações, consegue escrever algoritmos funcionais com facilidade. Programa de forma expressiva e menos declarativa. Conhece os problemas da mutabilidade e evita side effects.",
+                                "levelValue": 4,
+                                "levelUuid": "0e680c8f-9ab3-48ca-98f3-c9a11fa0cce7"
+                            },
+                            {
+                                "levelDescription": "Escreve código funcional com facilidade, de forma imutável e sem side effects. Conhece High Order Functions mas ainda não domina totalmente.",
+                                "levelValue": 5,
+                                "levelUuid": "888f9cff-b7d2-4a70-be29-3bbd803eaac4"
+                            },
+                            {
+                                "levelDescription": "Entende conceitos como Closures, High Order Functions e Currying e consegue aplicá-los quando necessário.",
+                                "levelValue": 6,
+                                "levelUuid": "a3891ccd-48fa-4522-8faf-53890a2cf812"
+                            },
+                            {
+                                "levelDescription": "Consegue refinar funções longas e complexas. Organizando, dividindo, refinando código, removendo duplicidades e convertendo funções Tríades em Díades ou Mônades. ",
+                                "levelValue": 7,
+                                "levelUuid": "150e8109-b546-42b8-b792-35b6230438d0"
+                            },
+                            {
+                                "levelDescription": "Aplica os conceitos do Paradigma funcional com Eficiência, consegue atingir paralelismo e administrar concorrência com o objetivo de adquirir alta performance na execução.",
+                                "levelValue": 8,
+                                "levelUuid": "eecc6938-7f9a-48e7-971d-80eb379538c8"
+                            },
+                            {
+                                "levelDescription": "Domina todos os aspectos do paradigma de forma natural. Orienta outros devs sobre Transparência Referencial, Programação Expressiva, Variância, Contra Variância e Invariância, Mônadas, coroutine, High Order Functions, Reificação, Functional Programming Calisthenics, etc.",
+                                "levelValue": 9,
+                                "levelUuid": "8a28e76d-bca9-44ca-bd54-a9735e749f17"
+                            },
+                            {
+                                "levelDescription": "É referência em programação funcional. Conhece a fundo o paradigma e consegue resolver de forma elegante praticamente qualquer problema.",
+                                "levelValue": 10,
+                                "levelUuid": "84dd5aec-d323-4739-8765-941cf0485835"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Paradigms: OO",
+                        "subCategoryDescription": "Um paradigma de programação fornece e determina a visão que o programador possui sobre a estruturação e execução do programa.",
+                        "questions": [
+                            {
+                                "levelDescription": "Nenhum conhecimento ou apenas ouviu falar.",
+                                "levelValue": 0,
+                                "levelUuid": "592e0032-76a5-4c94-8259-69939f2ed80d"
+                            },
+                            {
+                                "levelDescription": "Pouco ou nenhum conhecimento. Consegue ler mas tem dificuldade em entender alguns conceitos",
+                                "levelValue": 1,
+                                "levelUuid": "faa9e511-9072-486d-8a77-dcd22e8e446a"
+                            },
+                            {
+                                "levelDescription": "Conhece sobre os pilares da OO, consegue identificá-los no código mas nem sempre consegue aplicar de forma prática.",
+                                "levelValue": 2,
+                                "levelUuid": "6ae25e0f-0364-4054-a9ef-bf4372c0f916"
+                            },
+                            {
+                                "levelDescription": "Conhece os pilares da OO, e consegue implementar o básico, de forma ainda verbosa e com alguns gaps, contudo sem muita dificuldade.",
+                                "levelValue": 3,
+                                "levelUuid": "8cb99482-0a72-4086-ad0d-8b1d709e1a2d"
+                            },
+                            {
+                                "levelDescription": "Consegue escrever um código OO com facilidade. Entende e consegue aplicar parcialmente os conceitos do SOLID com certa dificuldade.",
+                                "levelValue": 4,
+                                "levelUuid": "9c29e723-cbb2-4a0f-97c9-5a024ca66328"
+                            },
+                            {
+                                "levelDescription": "Facilidade com programação OO. Aplica todos os princípios do SOLID com facilidade",
+                                "levelValue": 5,
+                                "levelUuid": "013af801-e8dc-4869-b5e7-5016ed9752e3"
+                            },
+                            {
+                                "levelDescription": "Consegue refatorar códigos complexos deixando muito mais Orientado a Objetos. Orienta em review dos colegas pontos de melhoria para reduzir possíveis acomplamentos.",
+                                "levelValue": 6,
+                                "levelUuid": "d28d96e3-6261-4a71-935d-2e0cd3c45b80"
+                            },
+                            {
+                                "levelDescription": "É assertivo em refatorações e reviews sobre código que viola boas práticas do paradigma. Escreve códigos com baixo acoplamento e com alta coesão, mantendo as informações nos lugares aos quais pertencem.",
+                                "levelValue": 7,
+                                "levelUuid": "80ff9f62-34f8-402c-85ba-0bc9382ea749"
+                            },
+                            {
+                                "levelDescription": "Conhece a fundo a OO e tem bom domínio sobre melhores práticas. Aplica com facilidade no seu dia a dia e mentora desenvolvedores menos experientes em como deixar o código melhor tirando o máximo de proveito das cracterísticas do paradigma.",
+                                "levelValue": 8,
+                                "levelUuid": "9ba49a79-ee39-4512-a436-143751e428b9"
+                            },
+                            {
+                                "levelDescription": "Tem total domínio sobre o paradigma, sabe quando a Orientação a Objetos é a melhor solução e quando pode ser um problema. Domina todas os conceitos do paradigma, tais como SOLID, KISS, DRY, Object Calisthenics, e aplica de forma natural no dia a dia com alta coesão e baixo acoplamento.",
+                                "levelValue": 9,
+                                "levelUuid": "03bddfab-4090-4f35-92b5-63ac13e7dd82"
+                            },
+                            {
+                                "levelDescription": "É referência em programação orientada a objetos. Conhece a fundo o paradigma e consegue resolver de forma elegante praticamente qualquer problema.",
+                                "levelValue": 10,
+                                "levelUuid": "e267f545-e9aa-40cc-9a09-0a380b53ecb1"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Problem solving",
+                        "subCategoryDescription": "Uso de métodos e ferrramentas para encontrar soluções de problemas específicos. Envolve utilizar uma abordagem científica (observação, levantamento de hipóteses, reprodução, formulação da solução) em vez de tentativa e erro.",
+                        "questions": [
+                            {
+                                "levelDescription": "Não consegue resolver problemas.",
+                                "levelValue": 0,
+                                "levelUuid": "cc17b7e4-dd40-4782-a463-2874ff27b756"
+                            },
+                            {
+                                "levelDescription": "Tem dificuldade em abordar problemas e identificar onde precisa ser corrigido ou implementado.",
+                                "levelValue": 1,
+                                "levelUuid": "3bf36b81-c21e-4d29-bfd4-65bebbe752a7"
+                            },
+                            {
+                                "levelDescription": "Resolve problemas com a abordagem de tentativa e erro. Não há uma abordagem estruturada.",
+                                "levelValue": 2,
+                                "levelUuid": "83d2a4aa-1908-4c90-9dfb-2c2f0b16c1a6"
+                            },
+                            {
+                                "levelDescription": "Ainda tem dificuldades em identificar os problemas por meio da observação, mas já deixa de lado a abordagem de tentativa e erro.",
+                                "levelValue": 3,
+                                "levelUuid": "571cd2e7-4b90-4319-94bb-3f74a53468e1"
+                            },
+                            {
+                                "levelDescription": "Já consegue identificar os problemas através da observação e inicia o trabalho de levantar hipóteses para a solução",
+                                "levelValue": 4,
+                                "levelUuid": "27a94437-bb24-45e6-acfb-eec8f223c5b0"
+                            },
+                            {
+                                "levelDescription": "Realiza o levantamento de hipóteses para solução do problema e as testa para decidir pela melhor solução.",
+                                "levelValue": 5,
+                                "levelUuid": "61e77f05-07fe-450a-b54c-0505863e354c"
+                            },
+                            {
+                                "levelDescription": "Consegue resolver problemas complexos utilizando uma abordagem mais científica, estruturada e documentada da solução, preocupando-se em compartilhar esse conhecimento com o time.",
+                                "levelValue": 6,
+                                "levelUuid": "82cbe5fa-8d72-4bf2-997b-8673acbaabcf"
+                            },
+                            {
+                                "levelDescription": "Resolve qualquer problema complexo mas ainda depende das ferramentas disponíveis.",
+                                "levelValue": 7,
+                                "levelUuid": "545c505d-1077-44bd-9475-8803d86926ad"
+                            },
+                            {
+                                "levelDescription": "Busca a solução mais simples (Navalha de Ockham).",
+                                "levelValue": 8,
+                                "levelUuid": "ca39db41-d610-48c9-8bad-3dcde02f86df"
+                            },
+                            {
+                                "levelDescription": "Resolve qualquer problema com as ferramentas disponíveis, ou as construindo quando necessário.",
+                                "levelValue": 9,
+                                "levelUuid": "f01b9a33-bea2-4e3a-83d5-e8a90d2eb038"
+                            },
+                            {
+                                "levelDescription": "Enxerga soluções para problemas ultra complexos que outros não conseguem exergar.",
+                                "levelValue": 10,
+                                "levelUuid": "e18f7fa7-ac0d-45fa-9a6f-b955db921965"
+                            }
+                        ]
+                    },
+                    {
+                        "subCategory": "Stack&Tools",
+                        "subCategoryDescription": "Entende-se por Stack o conjunto de ferramentas (Tools) utilizadas no dia a dia para execução das atividades ou ambiente onde os artefatos são disponibilizados. Representa o grau de domínio das ferramentas disponíveis e da linguagem em que atua.",
+                        "questions": [
+                            {
+                                "levelDescription": "Nunca atuou profissionalmente com nenhuma stack.",
+                                "levelValue": 0,
+                                "levelUuid": "3a8a4d5a-be87-4272-ae91-f7d6a4caa16b"
+                            },
+                            {
+                                "levelDescription": "Tem conhecimentos básicos da linguagem e IDE. Já atuou profissionalmente em alguma stack.",
+                                "levelValue": 1,
+                                "levelUuid": "5655f41d-93b2-4a01-9dfe-72aa5e682c36"
+                            },
+                            {
+                                "levelDescription": "Conhece a sintaxe da linguagem e a maioria dos operadores e estruturas. Consegue utilizar os recursos da IDE para debugar e realizar refactorings simples (rename, extract to variable/method, inline, etc)",
+                                "levelValue": 2,
+                                "levelUuid": "62c35ee5-162d-4d84-aaa3-a4753eb48ab8"
+                            },
+                            {
+                                "levelDescription": "Conhece bem a linguagem que trabalha. Entende diferenças em versões e acompanha suas evoluções (novas implementações, funções que se tornaram obsoletas e afins).",
+                                "levelValue": 3,
+                                "levelUuid": "9ac28855-d84b-43f0-9727-d69abc54d381"
+                            },
+                            {
+                                "levelDescription": "Consegue implementar qualquer coisa na stack que trabalha praticamente sem ajuda dos mais seniores, embora o código não seja ainda o mais limpo, coeso e com baixo acomplamento.",
+                                "levelValue": 4,
+                                "levelUuid": "65c7a1f5-6572-4250-97df-1042aeceae79"
+                            },
+                            {
+                                "levelDescription": "Tem fluência na linguagem e não depende dos mais seniores para implementar mesmo problemas complexos. Ainda tem dificuldade na utilização e ponderar tradeoffs na escolha de frameworks/libs para o projeto.",
+                                "levelValue": 5,
+                                "levelUuid": "02ed683c-e131-4a12-84bf-0dec20d06416"
+                            },
+                            {
+                                "levelDescription": "Conhece a maior parte dos frameworks de mercado/obj dentro da stack e conhece a maior parte dos tradeoffs do seu uso em projetos novos e em andamento mas ainda precisa dos mais seniores para decidir sobre suas utilizações no projeto.",
+                                "levelValue": 6,
+                                "levelUuid": "d75ab395-4097-40d5-b56d-12175ccf9e29"
+                            },
+                            {
+                                "levelDescription": "Tem total domínio da linguagem e IDE, conhece em profundidade os melhores frameworks do mercado disponíveis para a stack bem como suas variações e bibliotecas disponíveis. Sabe quando é bom utilizá-los e quando não.",
+                                "levelValue": 7,
+                                "levelUuid": "1b99507a-6562-4f73-94ac-87048f7cbe9a"
+                            },
+                            {
+                                "levelDescription": " Consegue utilizar os melhores recursos dos frameworks disponíveis para a stack. Já consegue contribuir com commits em projetos open source referentes ao ecossistema que atua (libs, frameworks, ferramentas, etc).",
+                                "levelValue": 8,
+                                "levelUuid": "024f6fe4-d262-401d-abfa-a116e55490b7"
+                            },
+                            {
+                                "levelDescription": "É referencia dentro do time para aquela tecnologia. Tem profundo conhecimento sobre stack, IDE, ferramentas, libs, framworks. Quando não existem libs disponíveis, as implementa.",
+                                "levelValue": 9,
+                                "levelUuid": "dc95ed8f-3dd6-4f32-af12-9734fc225433"
+                            },
+                            {
+                                "levelDescription": "É referência na linguagem, não apenas no time, mas também na Objective e nas comunidades. Domina a IDE que utiliza, tem fácilidade para debugar qualquer código e utiliza com maestria até mesmo os recursos mais avançados da linguagem explorando ao máximo seu potencial.",
+                                "levelValue": 10,
+                                "levelUuid": "c8dcca9d-f421-4d00-a6de-893505ce8ca6"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "Scope",
+                "subCategories": [
+                    {
+                        "subCategory": "Agile Planning",
+                        "subCategoryDescription": "O Planejamento de qualquer projeto é a chave para determinar o sucesso ou o fracasso. O entendimento e documentação do problema de negócio do cliente, a criação de um escopo que irá resolver cada um desses problemas e a quebra desse escopo em 3 níveis é importante para um melhor entendimento do cliente e do time que irá executá-lo.",
+                        "questions": [
+                            {
+                                "levelDescription": "Não consegue entender o problema de negócio ou levantar requisitos.",
+                                "levelValue": 0,
+                                "levelUuid": "7706fdae-6f63-486a-8877-6a34f20ef791"
+                            },
+                            {
+                                "levelDescription": "Pouco ou nenhum conhecimento de negócio. Executa as tarefas pensando somente na questão técnica, sem olhar a parte de negócio.",
+                                "levelValue": 1,
+                                "levelUuid": "9f1d1249-0887-4065-8dab-e58d8180192c"
+                            },
+                            {
+                                "levelDescription": "Quebra tarefas com pouco detalhamento de escopo e sem critérios de aceite definidos. Não consegue dar estimativas.",
+                                "levelValue": 2,
+                                "levelUuid": "079c32f7-9d0d-4e76-be9e-1c79b7bae444"
+                            },
+                            {
+                                "levelDescription": "Entende um pouco melhor sobre planejamento de Features e consegue fazer quebra de tarefas no terceiro nível, mas com glanuralidade baixa.",
+                                "levelValue": 3,
+                                "levelUuid": "be1486f3-ec3b-4f21-8a97-0e35f6105459"
+                            },
+                            {
+                                "levelDescription": "Quebra tarefas em maior granularidade, mas com descrição nada clara nem objetiva. Tarefas tem alto grau de dependência, impossibilitando paralelismo. Outro desenvolvedor teria dificuldade para implementar a tarefa de forma autonoma. Já consegue dar estimativas baseadas em tempo.",
+                                "levelValue": 4,
+                                "levelUuid": "ec29137a-e573-4389-948a-368865ec7db2"
+                            },
+                            {
+                                "levelDescription": "Conhece parte do negócio do cliente. Faz planejamentos de pequnas Features, mas precisa sempre de revisão. Normalmente, escopo detalhado está incompleto e/ou sem definição dos testes de aceitação (principalmente para os cenários de exceção). Consegue dar estimataivas em terceiro nível baseadas em complexidade (T-Shirt Sizing) com baixa assertividade.",
+                                "levelValue": 5,
+                                "levelUuid": "63236f37-38cf-441f-858e-3753551f71da"
+                            },
+                            {
+                                "levelDescription": "Entedimento do negócio e escopo planejado  para a Feature são bem completos. Realiza o detalhamento das tasks de forma enriquecida e de acordo com o definition of ready (SMART), antes de prosseguir com o desenvolvimento.",
+                                "levelValue": 6,
+                                "levelUuid": "df927bd6-cc02-4952-a266-3974768afbb0"
+                            },
+                            {
+                                "levelDescription": "Tem um entendimento mais completo do negócio, mas não tão aprofundado. Consegue planejar e acompanhar mais de uma Feature ao mesmo tempo. Produz especifcações bem detalhadas conseguindo mapear claramente qual o valor para o negócio cada Feature trará.",
+                                "levelValue": 7,
+                                "levelUuid": "11f77dfc-f47f-4422-ab95-f82cd5d34a3a"
+                            },
+                            {
+                                "levelDescription": "Conhece muito de pelo menos um módulo do sistema e consegue discutir sobre customização em qualquer módulo da aplicação, fazendo o planejamento a nível de Demandas. Features e tarefas tem descrições claras e objetivas de modo que qualquer desenvolvedor possa implementá-las sem a necessidade de acompanhamento constante. Já conhece e aplicar técnicas consolidadas no mercado de quebra de Features, como INVEST.",
+                                "levelValue": 8,
+                                "levelUuid": "1a1c6b8d-e073-4474-be27-999397adec64"
+                            },
+                            {
+                                "levelDescription": "Planejar projetos de médio prazo, tocando técnicamente Inceptions de pré-venda, fazendo a quebra em nível de Demandas e Features. Seu planejamento inclui previsibilidade de escopo, esforço e prazo, e sabe dizer o grau de assertividade do planejado. Demandas e Features descrevem problemas de negócio de forma que o cliente entenda o que está sendo resolvido a cada entrega. Consegue aplicar técnicas de backlog DEEP e T-shirt Sizing, além de conseguir auxiliar o PO no processo de FDP.",
+                                "levelValue": 9,
+                                "levelUuid": "d6287b01-8d75-4352-aeef-7c27f50af84a"
+                            },
+                            {
+                                "levelDescription": "Identifica e mapeia com extrema facilidade o problema de negócio do cliente, propondo soluções não pensadas pelo cliente. Todas as entregas são orientadas por critérios de aceitação, com alta qualidade e superando as expectativas do cliente. É referência negocial. Consegue discutir e propôr mudanças junto ao cliente em alto nível, inclusive na definição de roadmap alinhado com OKRs.  Em outras palavras, como entusiata das praticas ageis e referência negocial, consegue atuar como um consultor de negócios para o cliente e como consultor de solução para times internos. Priorização e definição de backlog é alinhado aos OKRs do cliente",
+                                "levelValue": 10,
+                                "levelUuid": "fabe569c-5a8b-440c-af12-f41fcfc23fd2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

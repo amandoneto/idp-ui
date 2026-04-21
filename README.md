@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IDP UI | Individual Development Plan
 
-## Getting Started
+![IDP UI Hero](/home/amandos/.gemini/antigravity/brain/b5a6cd65-5dd7-4f5f-b387-520e9ac89eee/idp_ui_hero_vibe_1776774341064.png)
 
-First, run the development server:
+## 🚀 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**IDP UI** is a high-performance, modern web interface designed for managing and tracking **Individual Development Plans (IDP)**. It provides a structured way for professionals to assess their skills, set goals, and monitor their career progression through a sleek, intuitive dashboard.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 💎 Spec-Driven Development (SDD)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is built using a **Spec-Driven Development** methodology. Unlike traditional development where the UI and logic are tightly coupled and manually orchestrated, IDP UI leverages a "Single Source of Truth" defined in JSON specifications.
 
-## Learn More
+### Why SDD?
+- **Agility**: Changes to assessment logic, categories, or scoring levels are made in the spec (JSON), and the UI adapts automatically.
+- **Consistency**: Ensures that the frontend representation is always perfectly aligned with the underlying data models and business rules.
+- **Scalability**: New assessment types or professional tracks can be added by simply providing a new specification file.
 
-To learn more about Next.js, take a look at the following resources:
+> [!TIP]
+> Check out `test.json` to see how the assessment structure, levels, and descriptions drive the entire user experience.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Key Features
 
-## Deploy on Vercel
+- **Hierarchical Assessments**: Navigate through categories and subcategories with ease.
+- **Status-Based Workflow**: Track assessments through various stages (e.g., Draft, Completed).
+- **Dynamic Level Selection**: Interactive components for selecting skill levels with real-time descriptions.
+- **Responsive Design**: A mobile-first approach ensuring a premium experience on any device.
+- **Modern Aesthetic**: Deep-toned, high-contrast UI designed for focus and clarity.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/) / Radix Primitives
+- **Data Fetching**: Axios
+- **Form Management**: React Hook Form + Zod
+- **Icons**: Lucide React
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (Latest LTS recommended)
+- npm / yarn / pnpm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd idp-ui
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📖 Learn More
+
+To learn more about the methodology or contribute to the project, please refer to the internal documentation or reach out to the development team.
