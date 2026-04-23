@@ -74,7 +74,7 @@ export function AssessmentCard({ assessment, index }: AssessmentCardProps) {
 
       <CardFooter className="bg-muted/30 border-t flex justify-end gap-2 py-4">
         {isCompleted ? (
-          <Link href={`/assessment/details/${assessment.uuid}`} className="w-full">
+          <Link href={`/assessment/details/${assessment.uuid}?leaderName=${encodeURIComponent(assessment.leaderName || '')}`} className="w-full">
             <button
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs font-black uppercase tracking-widest text-white bg-green-600 hover:bg-black border-2 border-transparent transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
             >
@@ -83,7 +83,7 @@ export function AssessmentCard({ assessment, index }: AssessmentCardProps) {
             </button>
           </Link>
         ) : (
-          <Link href={`/assessment/details/${assessment.uuid}`} className="w-full">
+          <Link href={`/assessment/details/${assessment.uuid}?leaderName=${encodeURIComponent(assessment.leaderName || '')}`} className="w-full">
             <button
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs font-black uppercase tracking-widest text-background bg-[#FF4500] hover:bg-black border-2 border-transparent transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
             >

@@ -1,5 +1,5 @@
 import apiClient from "../api-client";
-import { Assessment, PaginatedResponse, AssessmentDetails, AssessmentLevel } from "@/types/assessment";
+import { Assessment, PaginatedResponse, AssessmentDetails, AssessmentLevel, AssessmentAnswerDraft } from "@/types/assessment";
 
 export const assessmentApi = {
   getUserAssessments: async (page = 0, size = 10) => {
@@ -22,8 +22,8 @@ export const assessmentApi = {
     return response.data;
   },
 
-  saveAnswers: async (uuids: string[]) => {
-    const response = await apiClient.post("/assessments/answers", uuids);
+  saveAnswers: async (uuid: string, answers: AssessmentAnswerDraft[]) => {
+    const response = await apiClient.post(`/assessments/answers/${uuid}/drafts`, answers);
     return response.data;
   },
 
