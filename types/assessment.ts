@@ -23,6 +23,11 @@ export interface AssessmentLevel {
   description: string;
 }
 
+export interface AssessmentAnswerDraft {
+  uuid: string;
+  level: number;
+}
+
 export interface AssessmentAnswer {
   uuid: string;
   question: string;

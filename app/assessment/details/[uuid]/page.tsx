@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState, use } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { ProtectedRoute } from "@/components/auth/protected-route";
 import Header from "@/app/components/Header";
 import { assessmentApi } from "@/lib/api/assessments";
-import { AssessmentDetails, AssessmentLevel } from "@/types/assessment";
+import { AssessmentDetails, AssessmentLevel, AssessmentAnswerDraft } from "@/types/assessment";
 import { LevelDropdown } from "@/components/assessment/level-dropdown";
 import { Loader2, ArrowLeft, Target, Info, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,9 @@ import { toast } from "sonner";
 
 export default function AssessmentDetailsPage() {
   const params = useParams();
-  const uuid = params?.uuid as string;
+  const searchParams = useSearchParams();
+  const assessmentUUID = params?.uuid as string;
+  const urlLeaderName = searchParams?.get('leaderName');
   const [assessment, setAssessment] = useState<AssessmentDetails | null>(null);
   const [levels, setLevels] = useState<AssessmentLevel[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,18 +28,18 @@ export default function AssessmentDetailsPage() {
   useEffect(() => {
     async function fetchDetails() {
       try {
-        if (!uuid) return;
+        if (!assessmentUUID) return;
         setLoading(true);
-        
+
         // 1. Call getLevels() first
         const levelsData = await assessmentApi.getLevels();
         setLevels(levelsData);
 
         // 2. Then call getAssessmentDetails(uuid)
-        const data = await assessmentApi.getAssessmentDetails(uuid);
+        const data = await assessmentApi.getAssessmentDetails(assessmentUUID);
         if (data) {
           setAssessment(data);
-          
+
           const initialValues: Record<string, number> = {};
           data.categories.forEach(cat => {
             cat.subcategories.forEach(sub => {
@@ -61,10 +63,10 @@ export default function AssessmentDetailsPage() {
       }
     }
 
-    if (uuid) {
+    if (assessmentUUID) {
       fetchDetails();
     }
-  }, [uuid]);
+  }, [assessmentUUID]);
 
   const handleLevelChange = (answerUuid: string, value: number) => {
     setAnswers(prev => ({
@@ -78,9 +80,12 @@ export default function AssessmentDetailsPage() {
   const handleSaveDraft = async () => {
     try {
       setIsSaving(true);
-      const levelUuids = Object.values(answers).map(v => String(v));
-      await assessmentApi.saveAnswers(levelUuids);
-      
+      const payload: AssessmentAnswerDraft[] = Object.entries(answers).map(([uuid, level]) => ({
+        uuid,
+        level
+      }));
+      await assessmentApi.saveAnswers(assessmentUUID, payload);
+
       setInitialAnswers(answers);
       toast.success("Draft saved successfully!", {
         description: "Your progress has been synchronized with the server.",
@@ -132,8 +137,9 @@ export default function AssessmentDetailsPage() {
     );
   }
 
-  const isReadOnly = assessment.status?.toUpperCase() === 'DONE';
-  const hasLeader = !!assessment.leaderName;
+  const isReadOnly = assessment.status?.toUpperCase() === 'DONE' || assessment.status?.toUpperCase() === 'COMPLETED';
+  const effectiveLeaderName = assessment.leaderName || urlLeaderName;
+  const hasLeader = (!!effectiveLeaderName && effectiveLeaderName !== "")
 
   return (
     <ProtectedRoute>
@@ -163,12 +169,12 @@ export default function AssessmentDetailsPage() {
                   </div>
                   {hasLeader && (
                     <div className="px-3 py-1 border-2 border-foreground font-mono text-[10px] uppercase font-bold tracking-widest">
-                      Leader: {assessment.leaderName}
+                      Leader: {effectiveLeaderName || "Assigned"}
                     </div>
                   )}
                 </div>
               </div>
-              
+
               <div className="hidden lg:block w-1/3 p-8 border-l-2 border-[#FF4500]/20 bg-muted/5 italic text-muted-foreground text-sm uppercase leading-relaxed font-mono">
                 "Growth is never by mere chance; it is the result of forces working together."
               </div>
@@ -179,15 +185,15 @@ export default function AssessmentDetailsPage() {
         {/* Assessment Form */}
         <div className="container mx-auto px-4 mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
-            
+
             {/* Sidebar Navigation */}
             <aside className="lg:col-span-3 sticky top-32 h-fit hidden lg:block space-y-8">
               <div className="space-y-4">
                 <h3 className="font-mono text-xs font-black uppercase tracking-[0.3em] text-[#FF4500]">Sections</h3>
                 <nav className="flex flex-col gap-2 border-l-2 border-muted/20 pl-4">
                   {assessment.categories.map((category) => (
-                    <a 
-                      key={category.uuid} 
+                    <a
+                      key={category.uuid}
                       href={`#${category.uuid}`}
                       className="text-sm font-bold uppercase tracking-tight text-muted-foreground hover:text-foreground hover:translate-x-1 transition-all py-1"
                     >
@@ -209,79 +215,79 @@ export default function AssessmentDetailsPage() {
             <div className="lg:col-span-9 space-y-24">
               {assessment.categories.map((category) => (
                 <section key={category.uuid} id={category.uuid} className="space-y-12">
-                    <div className="flex items-center gap-6">
-                      <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter shrink-0">{category.name}</h2>
-                      <div className="h-[2px] w-full bg-[#FF4500]/20" />
-                    </div>
+                  <div className="flex items-center gap-6">
+                    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter shrink-0">{category.name}</h2>
+                    <div className="h-[2px] w-full bg-[#FF4500]/20" />
+                  </div>
 
-                    <div className="space-y-16">
-                      {category.subcategories.map((sub) => (
-                        <div key={sub.uuid} className="space-y-8">
-                          <div className="flex items-center gap-4">
-                            <span className="px-2 py-1 bg-muted font-mono text-[10px] uppercase font-bold text-muted-foreground">
-                              Subcategory
-                            </span>
-                            <h3 className="text-2xl font-black uppercase tracking-tight">{sub.name}</h3>
-                          </div>
+                  <div className="space-y-16">
+                    {category.subcategories.map((sub) => (
+                      <div key={sub.uuid} className="space-y-8">
+                        <div className="flex items-center gap-4">
+                          <span className="px-2 py-1 bg-muted font-mono text-[10px] uppercase font-bold text-muted-foreground">
+                            Subcategory
+                          </span>
+                          <h3 className="text-2xl font-black uppercase tracking-tight">{sub.name}</h3>
+                        </div>
 
-                          <div className="border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] overflow-hidden">
-                            <table className="w-full border-collapse">
-                              <thead>
-                                <tr className="bg-muted/30 border-b-2 border-foreground font-mono text-[10px] uppercase font-black tracking-[0.2em]">
-                                  <th className="text-left p-4 border-r-2 border-foreground">Question</th>
-                                  <th className="text-center p-4 w-32 border-r-2 border-foreground">User Selection</th>
+                        <div className="border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] overflow-hidden">
+                          <table className="w-full border-collapse">
+                            <thead>
+                              <tr className="bg-muted/30 border-b-2 border-foreground font-mono text-[10px] uppercase font-black tracking-[0.2em]">
+                                <th className="text-left p-4 border-r-2 border-foreground">Question</th>
+                                <th className="text-center p-4 w-32 border-r-2 border-foreground">User Selection</th>
+                                {hasLeader && (
+                                  <th className="text-center p-4 w-32">Leader Selection</th>
+                                )}
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y-2 divide-foreground/10">
+                              {sub.answers.map((ans, ansIdx) => (
+                                <tr key={ans.uuid} className="group hover:bg-muted/5 transition-colors">
+                                  <td className="p-6 border-r-2 border-foreground/10">
+                                    <div className="flex gap-4">
+                                      <span className="font-mono text-[#FF4500] font-black shrink-0">{ansIdx + 1}.</span>
+                                      <h4 className="text-sm font-bold uppercase tracking-tight leading-tight">{ans.question}</h4>
+                                    </div>
+                                  </td>
+                                  <td className="p-4 w-32 border-r-2 border-foreground/10 align-middle">
+                                    <LevelDropdown
+                                      levels={levels}
+                                      value={answers[ans.uuid] ?? null}
+                                      onChange={(val) => handleLevelChange(ans.uuid, val)}
+                                      disabled={isReadOnly}
+                                    />
+                                  </td>
                                   {hasLeader && (
-                                    <th className="text-center p-4 w-32">Leader Selection</th>
-                                  )}
-                                </tr>
-                              </thead>
-                              <tbody className="divide-y-2 divide-foreground/10">
-                                {sub.answers.map((ans, ansIdx) => (
-                                  <tr key={ans.uuid} className="group hover:bg-muted/5 transition-colors">
-                                    <td className="p-6 border-r-2 border-foreground/10">
-                                      <div className="flex gap-4">
-                                        <span className="font-mono text-[#FF4500] font-black shrink-0">{ansIdx + 1}.</span>
-                                        <h4 className="text-sm font-bold uppercase tracking-tight leading-tight">{ans.question}</h4>
-                                      </div>
-                                    </td>
-                                    <td className="p-4 w-32 border-r-2 border-foreground/10 align-middle">
-                                      <LevelDropdown 
+                                    <td className="p-4 w-32 align-middle">
+                                      <LevelDropdown
                                         levels={levels}
-                                        value={answers[ans.uuid] ?? null}
-                                        onChange={(val) => handleLevelChange(ans.uuid, val)}
-                                        disabled={isReadOnly}
+                                        value={ans.leaderLevelValue}
+                                        onChange={() => { }} // Read-only
+                                        disabled={true}
                                       />
                                     </td>
-                                    {hasLeader && (
-                                      <td className="p-4 w-32 align-middle">
-                                        <LevelDropdown 
-                                          levels={levels}
-                                          value={ans.leaderLevelValue}
-                                          onChange={() => {}} // Read-only
-                                          disabled={true}
-                                        />
-                                      </td>
-                                    )}
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
+                                  )}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
                         </div>
-                      ))}
-                    </div>
-                  </section>
+                      </div>
+                    ))}
+                  </div>
+                </section>
               ))}
 
               {/* Form Footer */}
               {!isReadOnly && (
                 <div className="pt-20 border-t-2 border-foreground/10 flex flex-col items-center gap-8">
                   <div className="text-center space-y-2">
-                     <h4 className="text-xl font-black uppercase tracking-tighter">Ready to finalize?</h4>
-                     <p className="text-muted-foreground font-mono text-xs uppercase">Your progress is being tracked locally.</p>
+                    <h4 className="text-xl font-black uppercase tracking-tighter">Ready to finalize?</h4>
+                    <p className="text-muted-foreground font-mono text-xs uppercase">Your progress is being tracked locally.</p>
                   </div>
                   <div className="flex flex-col md:flex-row gap-4">
-                    <Button 
+                    <Button
                       onClick={handleSaveDraft}
                       disabled={!hasChanges || isSaving}
                       variant="outline"
