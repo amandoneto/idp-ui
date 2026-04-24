@@ -8,7 +8,6 @@ import { Assessment, PaginatedResponse } from "@/types/assessment";
 import { AssessmentCard } from "@/components/assessment/assessment-card";
 import { Loader2, Plus, ChevronDown, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export default function AssessmentPage() {
   const [assessments, setAssessments] = useState<Assessment[]>([]);
@@ -23,7 +22,7 @@ export default function AssessmentPage() {
       else setLoading(true);
 
       const data = await assessmentApi.getUserAssessments(page, 8);
-      
+
       setAssessments(prev => append ? [...prev, ...data.content] : data.content);
       setPagination(data);
     } catch (err) {
@@ -49,7 +48,7 @@ export default function AssessmentPage() {
     <ProtectedRoute>
       <main className="min-h-screen bg-background pb-20">
         <Header />
-        
+
         {/* Hero Section */}
         <section className="relative pt-32 pb-16 overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-b from-muted/50 to-transparent -z-10" />
@@ -93,9 +92,9 @@ export default function AssessmentPage() {
               {/* Grid Section */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {assessments.map((assessment, index) => (
-                  <AssessmentCard 
-                    key={assessment.uuid} 
-                    assessment={assessment} 
+                  <AssessmentCard
+                    key={assessment.uuid}
+                    assessment={assessment}
                     index={index % 8} // index for staggered animation delay
                   />
                 ))}
@@ -104,10 +103,10 @@ export default function AssessmentPage() {
               {/* Load More Section */}
               {pagination && !pagination.last && (
                 <div className="mt-16 flex justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    onClick={handleLoadMore} 
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={handleLoadMore}
                     disabled={loadingMore}
                     className="group min-w-[200px] border-2 hover:border-[#FF4500] hover:text-[#FF4500] transition-all duration-300"
                   >

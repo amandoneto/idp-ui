@@ -68,8 +68,9 @@ export default function SignIn() {
                                 control={form.control}
                                 render={({ field, fieldState }) => (
                                     <Field>
-                                        <FieldLabel>Email</FieldLabel>
+                                        <FieldLabel htmlFor="email">Email</FieldLabel>
                                         <Input
+                                            id="email"
                                             aria-invalid={fieldState.invalid}
                                             placeholder="john@doe.com"
                                             type="email"
@@ -86,8 +87,9 @@ export default function SignIn() {
                                 control={form.control}
                                 render={({ field, fieldState }) => (
                                     <Field>
-                                        <FieldLabel>Password</FieldLabel>
+                                        <FieldLabel htmlFor="password">Password</FieldLabel>
                                         <Input
+                                            id="password"
                                             aria-invalid={fieldState.invalid}
                                             placeholder="********"
                                             type="password"
